@@ -16,6 +16,26 @@ namespace Tarea2
             CargarProcedimientos();
             CargarDGVProcedimientos();
             CargarMedicosAdicionales();
+            CargarCitas();
+        }
+
+        private void CargarCitas()
+        {
+            string query = "SELECT CitaID, Cedula, MotivoConsulta, CedulaMedico FROM Cita";
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    // Agregar las citas al ComboBox
+                    cbCitas.Items.Add(new { CitaID = reader["CitaID"].ToString(), Detalle = $"{reader["Cedula"]} - {reader["MotivoConsulta"]}", CedulaMedico = reader["CedulaMedico"].ToString() });
+                }
+            }
+
+            cbCitas.DisplayMember = "CitaID";  // Mostrar detalles de la cita en el ComboBox
+            cbCitas.ValueMember = "CitaID";     // Usar CitaID como valor
         }
 
         private void CargarProcedimientos()
@@ -140,7 +160,10 @@ namespace Tarea2
 
                 MessageBox.Show("Procedimiento modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarCampos();
+                CargarProcedimientos();
                 CargarDGVProcedimientos();
+                CargarMedicosAdicionales();
+                CargarCitas();
             }
             catch (Exception ex)
             {

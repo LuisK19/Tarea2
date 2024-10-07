@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormProcedimientoMostrar";
+            dgvProcedimientos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvProcedimientos).BeginInit();
+            SuspendLayout();
+            // 
+            // dgvProcedimientos
+            // 
+            dgvProcedimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProcedimientos.Location = new System.Drawing.Point(0, 3);
+            dgvProcedimientos.Name = "dgvProcedimientos";
+            dgvProcedimientos.RowHeadersWidth = 51;
+            dgvProcedimientos.Size = new System.Drawing.Size(1032, 614);
+            dgvProcedimientos.TabIndex = 37;
+            // 
+            // FormProcedimientoMostrar
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1032, 618);
+            Controls.Add(dgvProcedimientos);
+            Name = "FormProcedimientoMostrar";
+            Text = "FormProcedimientoMostrar";
+            ((System.ComponentModel.ISupportInitialize)dgvProcedimientos).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgvProcedimientos;
     }
 }

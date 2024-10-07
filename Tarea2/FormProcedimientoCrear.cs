@@ -120,7 +120,9 @@ namespace Tarea2
 
                 MessageBox.Show("Procedimiento registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarCampos();
+                CargarCitas();
                 CargarDGVProcedimientos();
+                CargarMedicosAdicionales();
             }
             catch (Exception ex)
             {
